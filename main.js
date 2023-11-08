@@ -19,7 +19,7 @@ async function repeat(){ //to repeat, await bc is using another async function?
     const imgData = await fetchData(`${apiImg}/cat?json=true`);
     //put values of data
     randomFactP.innerText =factData.text;
-    randomImgSection.src=`${apiImg}/${imgData.url}`
+    randomImgSection.src=`${apiImg}/cat/${imgData._id}`
 }
 
 repeat(); //first fetch
