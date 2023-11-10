@@ -1,5 +1,5 @@
 //bring elements
-const randomImgSection = document.getElementById("random-img");
+const catSection = document.getElementById("cats-container")
 const randomFactP = document.getElementById("random-fact");
 
 //put api urls
@@ -13,13 +13,22 @@ async function fetchData(url){ //fact data = text
     return data;
 }
 
-async function repeat(){ //to repeat, await bc is using another async function?
+async function fetchImages(){ //to repeat, await bc is using another async function?
     //use fetchdata func
-    const factData = await fetchData(`${apiFact}/facts/random?animal_type=cat&amount=1`);
+    //const factData = await fetchData(`${apiFact}/facts/random?animal_type=cat&amount=1`);
     const imgData = await fetchData(`${apiImg}/cat?json=true`);
     //put values of data
-    randomFactP.innerText =factData.text;
-    randomImgSection.src=`${apiImg}/cat/${imgData._id}`
+    //randomFactP.innerText =factData.text;
+    const catContainer = document.createElement("div");
+    const imgContainer = document.createElement("img");
+    imgContainer.src=`${apiImg}/cat/${imgData._id}`
+    catContainer.append(imgContainer)
+    return catContainer
 }
 
-repeat(); //first fetch
+async function addImage(){
+    const newImage = await fetchImages()
+    catSection.append(newImage)
+}
+
+addImage(); //first fetch
