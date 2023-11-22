@@ -6,6 +6,19 @@ const randomFactP = document.getElementById("random-fact");
 const apiImg = "https://cataas.com";
 const apiFact = "https://cat-fact.herokuapp.com";
 
+const options= {}
+const observer = new IntersectionObserver(esVisible,options);
+
+function esVisible(entries,observer){
+    let intersecciones = entries.filter((entry)=> entry.isIntersecting)
+    intersecciones.forEach(element => {
+        console.log("hola")
+        observer.unobserve(element.target)
+    });
+}
+
+
+
 //async functions to bring data
 async function fetchData(url){ //fact data = text
     const response = await fetch(url);
@@ -29,6 +42,7 @@ async function fetchImages(){ //to repeat, await bc is using another async funct
 async function addImage(){
     const newImage = await fetchImages()
     catSection.append(newImage)
+    observer.observe(newImage)
 }
 
 addImage(); //first fetch
