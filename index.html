@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Cats - Ralerv</title>
     <script src="./style.css"></script>
-    <script defer src="./main.js"></script>
+    <script defer src="./main.js" type="module"></script>
 
 </head>
 <body>
     <h1>El gato del día</h1>
-    <button onclick="addImage()" ontouchend="addImage()">¡Otra vez!</button>
+    <button id="addButton">¡Otra vez!</button>
     <section id="cats-container">
     </section>
     <p id="random-fact"></p>

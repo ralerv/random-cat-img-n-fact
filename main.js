@@ -1,23 +1,16 @@
 //bring elements
+import { observer } from "./lazy.mjs";
 const catSection = document.getElementById("cats-container")
 const randomFactP = document.getElementById("random-fact");
+const addButton = document.getElementById("addButton")
+
+//listeners
+addButton.addEventListener("click",addImage)
+addButton.addEventListener("touchend",addImage)
 
 //put api urls
 const apiImg = "https://cataas.com";
 const apiFact = "https://cat-fact.herokuapp.com";
-
-const options= {}
-const observer = new IntersectionObserver(esVisible,options);
-
-function esVisible(entries,observer){
-    let intersecciones = entries.filter((entry)=> entry.isIntersecting)
-    intersecciones.forEach(element => {
-        console.log("hola")
-        observer.unobserve(element.target)
-    });
-}
-
-
 
 //async functions to bring data
 async function fetchData(url){ //fact data = text
