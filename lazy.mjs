@@ -1,8 +1,10 @@
 function esVisible(entries,observer){
     let intersecciones = entries.filter((entry)=> entry.isIntersecting)
     intersecciones.forEach(entry => {
-        console.log("hola")
-        observer.unobserve(entry.target)
+        const container = entry.target
+        const img = container.firstChild
+        img.src=img.dataset.src
+        observer.unobserve(container)
     });
 }
 
