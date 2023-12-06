@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Cats - Ralerv</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script defer src="./main.js" type="module"></script>
-
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>El gato del día</h1>
-    <button id="addButton">¡Otra vez!</button>
-    <section id="cats-container">
+    <h1 class="w-full h-20 flex justify-center items-center bg-blue-900 text-white text-2xl font-bold">El gato del día</h1>
+    
+    <section id="cats-container" class="px-5 py-3 flex flex-col gap-2">
     </section>
+    
+    <div class="w-full h-auto mx-auto my-2 mb-4 flex justify-center items-center fixed bottom-0">
+        <button id="addButton"
+        class="w-3/4 bg-slate-700 text-white rounded-md p-2">Añadir gato +</button>
+    </div>
     <p id="random-fact"></p>
+    <script src="./main.js" type="module"></script>
 </body>
 </html>

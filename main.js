@@ -26,7 +26,9 @@ async function fetchImages(){ //to repeat, await bc is using another async funct
     //put values of data
     //randomFactP.innerText =factData.text;
     const catContainer = document.createElement("div");
+    catContainer.className = "w-full"
     const imgContainer = document.createElement("img");
+    imgContainer.className = "rounded-lg"
     imgContainer.dataset.src=`${apiImg}/cat/${imgData._id}`
     catContainer.append(imgContainer)
     return catContainer

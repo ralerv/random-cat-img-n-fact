@@ -1,0 +1,12 @@
+{
+  "name": "api-1---no-favoritos",
+  "version": "1.0.0",
+  "description": "Repository of an random img cat saying random cat fact",
+  "main": "main.js",
+  "scripts": {
+    "runTailwind": "npx tailwindcss -i ./src/input.css -o ./style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
