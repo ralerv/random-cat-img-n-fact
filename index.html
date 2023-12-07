@@ -9,14 +9,13 @@
 <body>
     <h1 class="w-full h-20 flex justify-center items-center bg-blue-900 text-white text-2xl font-bold">El gato del día</h1>
     
-    <section id="cats-container" class="px-5 py-3 flex flex-col gap-2">
+    <section id="cats-container" class="px-5 py-3 flex flex-col gap-2 sm:flex-wrap sm:flex-row sm:justify-around sm:gap-4">
     </section>
     
     <div class="w-full h-auto mx-auto my-2 mb-4 flex justify-center items-center fixed bottom-0">
         <button id="addButton"
-        class="w-3/4 bg-slate-700 text-white rounded-md p-2">Añadir gato +</button>
+        class="w-3/4 bg-slate-700 text-white rounded-md p-2 shadow-md shadow-slate-700">Añadir gato +</button>
     </div>
-    <p id="random-fact"></p>
     <script src="./main.js" type="module"></script>
 </body>
 </html>
