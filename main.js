@@ -1,12 +1,10 @@
 //bring elements
 import { observer } from "./lazy.mjs";
 const catSection = document.getElementById("cats-container")
-const randomFactP = document.getElementById("random-fact");
 const addButton = document.getElementById("addButton")
 
 //listeners
 addButton.addEventListener("click",addImage)
-addButton.addEventListener("touchend",addImage)
 
 //put api urls
 const apiImg = "https://cataas.com";
@@ -20,24 +18,31 @@ async function fetchData(url){ //fact data = text
 }
 
 async function fetchImages(){ //to repeat, await bc is using another async function?
-    //use fetchdata func
-    //const factData = await fetchData(`${apiFact}/facts/random?animal_type=cat&amount=1`);
     const imgData = await fetchData(`${apiImg}/cat?json=true`);
-    //put values of data
-    //randomFactP.innerText =factData.text;
-    const catContainer = document.createElement("div");
-    catContainer.className = "w-full"
     const imgContainer = document.createElement("img");
-    imgContainer.className = "rounded-lg"
+    imgContainer.className = "w-full h-auto rounded-lg sm:w-auto sm:h-80"
     imgContainer.dataset.src=`${apiImg}/cat/${imgData._id}`
-    catContainer.append(imgContainer)
-    return catContainer
+    return imgContainer
 }
 
 async function addImage(){
+    const catContainer = document.createElement("div");
+    catContainer.className = "w-full h-20 max-h-fit bg-slate-500 rounded-lg sm:w-fit sm:h-auto sm:relative"
+
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "×"
+    deleteButton.className = "w-8 h-8 z-20 absolute right-0 top-0 text-2xl text-white drop-shadow-lg shadow-black"
+    deleteButton.addEventListener('click', deleteDiv);
+
+    catSection.append(catContainer)
     const newImage = await fetchImages()
-    catSection.append(newImage)
-    observer.observe(newImage)
+    catContainer.append(newImage,deleteButton)
+    observer.observe(catContainer)
+}
+
+function deleteDiv(contenedor){
+    const parentButton = contenedor.srcElement.parentNode
+    parentButton.remove()
 }
 
 addImage(); //first fetch
