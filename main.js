@@ -27,7 +27,7 @@ async function fetchImages(){ //to repeat, await bc is using another async funct
 
 async function addImage(){
     const catContainer = document.createElement("div");
-    catContainer.className = "relative w-full h-20 max-h-fit bg-slate-500 rounded-lg"
+    catContainer.className = "relative w-full h-20 max-h-fit bg-slate-500 rounded-lg sm:w-20"
     catSection.append(catContainer)
 
     const deleteButton = document.createElement("button");

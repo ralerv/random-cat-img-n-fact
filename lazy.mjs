@@ -7,14 +7,16 @@ function esVisible(entries,observer){
 
         img.addEventListener("load", (event)=>{
             if(img.complete && img.naturalHeight !== 0){
-                container.classList.add("sm-w-auto","h-auto")
                 container.classList.remove("w-full")
+                container.classList.add("h-auto")
+                container.style.width="auto"
             }
         })
         img.removeEventListener("load", (event)=>{
             if(img.complete && img.naturalHeight !== 0){
-                container.classList.add("sm-w-auto","h-auto")
                 container.classList.remove("w-full")
+                container.classList.add("h-auto")
+                container.style.width="auto"
             }
         })
         observer.unobserve(container)
